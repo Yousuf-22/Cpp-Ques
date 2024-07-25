@@ -2,34 +2,28 @@
 #include<stack>
 using namespace std;
 bool isValid(string str) {
-    stack <int> s;
+    stack <int> st;
     for(int i = 0; i<str.size(); i++) {
-        if(str[i] == '(' or str[i] == '[' or str[i] == '{') {
-            s.push(str[i]);
+        if(str[i] == '(' || str[i] == '[' || str[i] == '{') {
+            st.push(str[i]);
         }
         else{
-            if(s.empty()) {
-            return false;
+            char ch = st.top();
+            st.pop();
+            if(str[i] == ')' and ch == '(' || str[i] == ']' and ch == '[' || str[i] == '}' and ch == '{') {
             }
-            char ch = s.top(); 
-            s.pop();
-            if(str[i] == ')' and ch == '(' or 
-            str[i] == ']' and ch == '[' or 
-            str[i] == '}' and ch == '{') {
-
-            }
-            else {
+            else{
                 return false;
             }
         }
-        
     }
-    if(s.empty()) {
+    if(st.empty()) {
         return true;
     }
-    }
+    return false;
+} 
 int main() {
-    string str = {"(]"};
+    string str = {"(}"};
     cout << isValid(str);
     return 0;
 }

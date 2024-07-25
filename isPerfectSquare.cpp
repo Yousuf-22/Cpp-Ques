@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 bool isPerfectSquare(int num) {
-    float mid = (num) / 2;
+    double mid = (num) / 2;
 
     while(num) {
         if((mid * mid) == num) {
@@ -20,12 +20,12 @@ bool isPerfectSquare(int num) {
 int main() {
     int n = 16;
     int ans = isPerfectSquare(n);
-
-    if(isPerfectSquare) {
-        cout << " BKL ";
-    }
-    else{
-        cout << " : ) ";
-    }
+    cout << ans;
+    // if(isPerfectSquare) {
+    //     cout << " BKL ";
+    // }
+    // else{
+    //     cout << " : ) ";
+    // }
     return 0;
 }
