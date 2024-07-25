@@ -17,12 +17,12 @@ int search(vector<int>& nums, int target) {
         else{
             right = mid - 1;
         }
-        mid = (left + right) / 2;
+        mid = (left + right) >> 1;
     }
     return -1;
 }
 int main() {
     vector <int> arr = {-1,0,3,5,9,12};
-    cout << search(arr,5);
+    cout << search(arr,12);
     return 0;
 }
