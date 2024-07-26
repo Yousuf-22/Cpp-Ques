@@ -17,7 +17,9 @@ int findComplement(int num) {
         if(s[i] == '1') {
             ans += p1;
         }
+    if(p1 < INT16_MAX || p1 > INT16_MIN) {
         p1 *= 2;
+    }
     }
     cout << "Complement : " << ans;
 }
