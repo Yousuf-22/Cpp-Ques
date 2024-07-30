@@ -1,27 +1,28 @@
 #include<iostream>
 #include<vector>
-#include<algorithm>
 #include<map>
+#include<algorithm>
 using namespace std;
 vector<int> sortByBits(vector<int>& arr) {
-    int n = arr.size();
-
-    map <string,int> mpp;
-    string s[n];
+    vector<pair<int,int>> v;
 
     for(int i = 0; i<arr.size(); i++) {
-        if(arr[0] == 0) {
-
+        int cnt = 0;
+        int div = 0;
+        div = arr[i];
+        while(div > 0) {
+            if(div % 2 == 1) cnt++;
+            div = div / 2;
         }
-        while(arr[i] > 0) {
-            if(arr[i] % 2 == 0) s[i] += '0';
-            else s[i] += '1';   
-            arr[i] = arr[i] / 2;
-        }
-        reverse(s[i].begin(), s[i].end());
+        v.push_back({cnt, arr[i]});
     }
-    for(int i = 0; i<n; i++) {
-        cout << s[i] << " ";
+    sort(v.begin(), v.end());
+    vector<int> ans;
+    for(auto it : v) {
+        ans.push_back(it.second);
+    }
+    for(int i = 0; i<ans.size(); i++) {
+        cout << ans[i] << " ";
     }
 }
 int main() {

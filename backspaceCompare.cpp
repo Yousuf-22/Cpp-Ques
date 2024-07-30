@@ -31,8 +31,8 @@ bool backspaceCompare(string s, string t) {
     return true;
 }
 int main() {
-    string s = "ab#c";
-    string t = "ad#c";
+    string s = "xywrrmp";
+    string t = "xywrrmu#p";
     bool ans = backspaceCompare(s,t);
     cout << ans;
     return 0;
