@@ -6,13 +6,14 @@ int numSubarraysWithSum(vector<int>& nums, int goal) {
     int r = 0;
     int sum = 0;
     int ans = 0;
-
+    if(goal < 0) return 0;
     while(r <= nums.size()) {
         sum += nums[r];
         if(sum <= goal) {
-            ans++;
+            ans = ans + (r-l+1);
+            r++;
         }
-        if(sum > goal) {
+        while(sum > goal) {
             sum = sum - nums[l];
             l++;
         }
@@ -21,7 +22,7 @@ int numSubarraysWithSum(vector<int>& nums, int goal) {
     return ans;
     }
 int main() {
-    vector <int> arr = {1,0,1,0,1};
+    vector <int> arr = {0,0,0,0,0};
     cout << numSubarraysWithSum(arr, 2);
     return 0;
 }
