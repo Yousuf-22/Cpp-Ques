@@ -26,7 +26,7 @@ vector<int> NGE(vector<int>& arr) {
     }
 }
 int main() {
-    vector<int> arr = {10,9,4,2,6,8,4,1,9,3};
+    vector<int> arr = {10,9,4,2,6,8,4,1,9,2};
     NGE(arr);
     return 0;
 }
