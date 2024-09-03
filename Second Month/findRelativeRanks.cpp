@@ -4,7 +4,7 @@
 using namespace std;
 vector<string> findRelativeRanks(vector<int>& score) {
     priority_queue<pair<int,int>> maxx;
-
+    
     vector<string> ans(score.size());
 
     for(int i = 0; i<score.size(); i++) {
