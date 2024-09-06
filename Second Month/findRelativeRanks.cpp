@@ -6,8 +6,9 @@ vector<string> findRelativeRanks(vector<int>& score) {
     priority_queue<pair<int,int>> maxx;
     
     vector<string> ans(score.size());
+    
     if(score.size() == 1) {
-        ans.push_back("Gold Medal");
+        ans[0] = "Gold Medal";
         return ans;
     }
 
@@ -17,34 +18,24 @@ vector<string> findRelativeRanks(vector<int>& score) {
     int cnt = 1;
     while(!maxx.empty()) {
        if(cnt == 1) {
-        // cout << maxx.top().second;
         ans[maxx.top().second] = "Gold Medal";
-        maxx.pop();
-        cnt++;
        }
-       if(cnt == 2) {
-        // cout << maxx.top().second;
+       else if(cnt == 2) {
         ans[maxx.top().second] = "Silver Medal";
-        maxx.pop();
-        cnt++;
        }
-       if(cnt == 3) {
-        // cout << maxx.top().second;
+       else if(cnt == 3) {
         ans[maxx.top().second] = "Bronze Medal";
-        maxx.pop();
-        cnt++;
        }
        else {
-        // cout << maxx.top().second;
         ans[maxx.top().second] = to_string(cnt);
+       }
         maxx.pop();
         cnt++;
-       }
     }
     return ans;
 }
 int main() {
-    vector<int> arr = {21,14,0,7};
+    vector<int> arr = {1};
     vector<string> ans = findRelativeRanks(arr);
 
     for(string x : ans) {
