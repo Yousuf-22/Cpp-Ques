@@ -17,9 +17,8 @@ string frequencySort(string s) {
     string ans = "";
     while(!maxx.empty()) {
         int temp = maxx.top().first;
-        while(temp > 0) {
+        while(temp--) {
             ans = ans + maxx.top().second;
-            temp--;
         }
         maxx.pop();
     }
