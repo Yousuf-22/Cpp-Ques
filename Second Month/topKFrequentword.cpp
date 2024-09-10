@@ -16,13 +16,9 @@ vector<string> topKFrequent(vector<string>& words, int k) {
 
     for(auto it : mpp) {
         maxx.push({it.second,it.first});
-
-        if(maxx.size() > k) {
-            maxx.pop();
-        }
     }
 
-    while(!maxx.empty()) {
+    while(k--) {
         ans.push_back(maxx.top().second);
         maxx.pop();
     }
@@ -30,8 +26,8 @@ vector<string> topKFrequent(vector<string>& words, int k) {
 }
 int main() {
 
-    vector<string> s = {"the","day","is","sunny","the","the","the","sunny","is","is"};
-    vector<string> ans = topKFrequent(s,4);
+    vector<string> s = {"i","love","leetcode","i","love","coding"};
+    vector<string> ans = topKFrequent(s,2);
 
     for(string x : ans) {
         cout << x << " ";
