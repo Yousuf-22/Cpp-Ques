@@ -23,6 +23,8 @@ bool backspaceCompare(string s, string t) {
     }
 
     while(!a.empty()) {
+        cout << a.top();
+        cout << b.top();
         if(a.top() != b.top()) {
             return false;
         }
@@ -32,8 +34,8 @@ bool backspaceCompare(string s, string t) {
     return true;
 }
 int main() {
-    string s = "y#fo##f";
-    string t = "y#f#o##f";
+    string s = "a#c";
+    string t = "b";
     cout << backspaceCompare(s,t);
     return 0;
 }
