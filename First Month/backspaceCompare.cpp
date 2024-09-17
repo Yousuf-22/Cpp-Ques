@@ -7,7 +7,7 @@ stack <char> intothestack(string x) {
         if(x[i] != '#') {
             ch.push(x[i]);
         }
-        if(!ch.empty()) {
+        else if(!ch.empty()) {
             ch.pop();
         }
     }
@@ -15,21 +15,19 @@ stack <char> intothestack(string x) {
 }
 bool backspaceCompare(string s, string t) {
 
-    stack<char> a = intothestack(s);
-    stack<char> b = intothestack(t);
+    stack<char> st1 = intothestack(s);
+    stack<char> st2 = intothestack(t);
 
-    if(a.size() != b.size()) {
+    if(st1.size() != st2.size()) {
         return false;
     }
 
-    while(!a.empty()) {
-        cout << a.top();
-        cout << b.top();
-        if(a.top() != b.top()) {
+    while(!st1.empty()) {
+        if(st1.top() != st2.top()) {
             return false;
         }
-        a.pop();
-        b.pop();
+        st1.pop();
+        st2.pop();
     }
     return true;
 }

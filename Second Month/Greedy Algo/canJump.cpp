@@ -14,7 +14,7 @@ bool canJump(vector<int>& nums) {
     return false;
 }
 int main() {
-    vector<int> arr = {2,3,1,0,4};
+    vector<int> arr = {3,2,1,0,4};
     cout << canJump(arr);
     return 0;
 }
