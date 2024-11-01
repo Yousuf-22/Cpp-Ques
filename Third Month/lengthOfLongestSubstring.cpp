@@ -35,38 +35,38 @@ int lengthOfLongestSubstring(string s) {
 }
 
 // My Own Approach
-int lengthOfLongestSubstring(string s) {
+// int lengthOfLongestSubstring(string s) {
 
-    unordered_map<char,int> mpp;
+//     unordered_map<char,int> mpp;
 
-    int i = 0;
-    int j = 0;
-    int ans = INT16_MIN;      
-    int cnt = 0;
+//     int i = 0;
+//     int j = 0;
+//     int ans = INT16_MIN;      
+//     int cnt = 0;
 
-    while(j < s.size()) {
-        mpp[s[j]]++;
-        cnt++;
+//     while(j < s.size()) {
+//         mpp[s[j]]++;
+//         cnt++;
 
-        if(mpp.size() == cnt) {
-            ans = max(ans,j-i+1);
-        }
+//         if(mpp.size() == cnt) {
+//             ans = max(ans,j-i+1);
+//         }
 
-        while(cnt > mpp.size()) {
-            mpp[s[i]]--;
-            cnt--;
-            if(mpp[s[i]] == 0) {
-                mpp.erase(s[i]);
-            }
-            i++;
-        }
-        j++;
-    }
+//         while(cnt > mpp.size()) {
+//             mpp[s[i]]--;
+//             cnt--;
+//             if(mpp[s[i]] == 0) {
+//                 mpp.erase(s[i]);
+//             }
+//             i++;
+//         }
+//         j++;
+//     }
 
-    return ans;
-}
+//     return ans;
+// }
 int main() {
-    string s = "tmmzuxt";
+    string s = "aaabcdd";
     cout << lengthOfLongestSubstring(s);
     return 0;
 }
