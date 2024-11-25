@@ -331,6 +331,44 @@ int lenOfCircular(Node* head) {
     return -1;
 }
 
+Node* addTwoNumbers(Node* l1, Node* l2) {
+
+    long long sum = 0;
+    int carry = 0;
+    int newNode = 0;
+
+    Node* ans = new Node(0);
+    Node* prev = ans;
+
+    while(l1 or l2) {
+        sum = 0;
+
+        if(l1) {
+            sum += l1->data;
+            l1 = l1->next;
+        }
+        if(l2) {
+            sum += l2->data;
+            l2 = l2->next;
+        }
+    
+        sum += carry;
+        carry = sum/10;
+        newNode = sum%10;
+
+        Node* temp = new Node(newNode);
+        prev->next = temp;
+        prev = temp;
+
+    }     
+    if(carry) {
+        Node* temp = new Node(carry);
+        prev->next = temp;
+    }
+
+    return ans->next;   
+}
+
 int main() {
     vector<int> arr = {1,2,3,4,5,8,5,65,76};
     vector<int> brr = {9,1,8};

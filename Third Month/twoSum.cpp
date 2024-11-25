@@ -2,28 +2,21 @@
 #include<vector>
 #include<unordered_map>
 using namespace std;
-vector<int> twoSum(vector<int>& arr, int target) {
-    unordered_map<int,int> mpp;
-    vector<int> ans;
-
-    for(int x : arr) {
-        arr[x]++;
-    }
-    for(int i = 0; i<arr.size(); i++) {
-        if(mpp.find(target - arr[i]) != mpp.end()) {
-            if((target - arr[i])+arr[i] == target) {
-            ans.push_back((target-arr[i]));
-            ans.push_back(arr[i]);
-            }
-        }
-    }
-
-    for(int i : ans) {
-        cout << i << " ";
-    }
-}
 int main() {
     vector<int> arr = {2,7,11,15};
-    twoSum(arr,9);
+    int target = 9;
+    unordered_map<int,int> mpp;
+    vector<int> ans;
+    for(int i = 0; i<arr.size(); i++) {
+        int diff = target - arr[i];
+        if(mpp.find(diff) != mpp.end()) {
+            ans.push_back(mpp[diff]);
+            ans.push_back(i);
+        }
+        mpp[arr[i]] = i;
+    }
+    for(auto i: ans) {
+        cout << i << " ";
+    }
     return 0;
 }
