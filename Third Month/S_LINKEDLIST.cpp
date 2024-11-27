@@ -369,6 +369,31 @@ Node* addTwoNumbers(Node* l1, Node* l2) {
     return ans->next;   
 }
 
+Node* mergeNodes(Node* head) {
+    if (head == NULL)
+            return NULL;
+        if (head->next->next->next == nullptr) {
+            head->next->next = nullptr;
+            return head->next;
+        }
+        Node* temp = head->next;
+        Node* dummy = new Node(0);
+        Node* prev = dummy;
+        int sum = 0;
+
+        while (temp) {
+            if (temp->data == 0) {
+                Node* temp = new Node(sum);
+                prev->next = temp;
+                prev = temp;
+                sum = 0;
+            }
+            sum += temp->data;
+            temp = temp->next;
+        }
+        return dummy->next;
+}
+
 int main() {
     vector<int> arr = {1,2,3,4,5,8,5,65,76};
     vector<int> brr = {9,1,8};
