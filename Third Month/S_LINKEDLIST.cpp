@@ -394,6 +394,34 @@ Node* mergeNodes(Node* head) {
         return dummy->next;
 }
 
+Node* removeNthFromEnd(Node* head, int n) {
+
+    if(head == NULL) return NULL;
+    if(head->next == nullptr and n == 1) return NULL;
+
+    Node* slow = head;
+    Node* fast = head;
+
+    while(n--) {
+        if(fast->next == nullptr) return head->next;
+        fast = fast->next;
+    }
+
+    while(fast->next != nullptr) {
+        fast = fast->next;
+        slow = slow->next;
+    }
+
+    if(slow->next->next) {
+        slow->next = slow->next->next;
+    }
+    else {
+        slow->next = nullptr;
+    }
+    
+    return head;
+}   
+
 int main() {
     vector<int> arr = {1,2,3,4,5,8,5,65,76};
     vector<int> brr = {9,1,8};
