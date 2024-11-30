@@ -185,7 +185,7 @@ int LenofLL(Node* head) {
     }
     return len;
 }
-Node* removeNthFromEnd(Node* head, int n) {
+Node* removeNthFromEnd1(Node* head, int n) {
     Node* temp = head;
 
     int len = LenofLL(temp);
@@ -456,13 +456,37 @@ Node* mergeInBetween(Node* list1, int a, int b, Node* list2) {
         return list1;
 }
 
+bool hasCycleOpti(Node* head) {
+    if (head == NULL || head->next == nullptr)
+            return false;
+        if (head->next->next == nullptr)
+            return false;
+
+        Node* slow = head;
+        Node* fast = head;
+
+        Node* temp = head;
+
+        while (fast and fast->next) {
+
+            slow = slow->next;
+            fast = fast->next->next;
+            
+            if (slow == fast) {
+                return true;
+            }
+        }
+        return false;
+}
+
 int main() {
-    vector<int> arr = {1,2,3,4,5,8,5,65,76};
+    vector<int> arr = {-21,10,17,8,4,26,5,35,33,-7,-16,27,-12,6,29,-12,5,9,20,14,14,2,13,-24,21,23,-21,5};
     vector<int> brr = {9,1,8};
     Node* t1 = Head(arr);
     Node* t2 = Head(brr);
 
-   cout << (lenOfCircular(t1));
+//    cout << (lenOfCircular(t1));
 
+    cout << hasCycleOpti(t1);
     return 0;
 }
