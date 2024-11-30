@@ -422,6 +422,40 @@ Node* removeNthFromEnd(Node* head, int n) {
     return head;
 }   
 
+Node* mergeInBetween(Node* list1, int a, int b, Node* list2) {
+    
+        Node* slow = list1;
+        Node* fast = list1;
+
+        int cnt1 = 0;
+        int cnt2 = 0;
+
+        Node* temp = list1;
+
+        while (temp != NULL) {
+            if (cnt1 != (a - 1)) {
+                slow = slow->next;
+                cnt1++;
+            }
+            if (cnt2 != (b + 1)) {
+                fast = fast->next;
+                cnt2++;
+            }
+            temp = temp->next;
+        }
+
+        Node* temp2 = list2;
+
+        while (temp2->next != nullptr) {
+            temp2 = temp2->next;
+        }
+
+        slow->next = list2;
+        temp2->next = fast;
+
+        return list1;
+}
+
 int main() {
     vector<int> arr = {1,2,3,4,5,8,5,65,76};
     vector<int> brr = {9,1,8};
