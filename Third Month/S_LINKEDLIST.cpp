@@ -479,6 +479,34 @@ bool hasCycleOpti(Node* head) {
         return false;
 }
 
+int getDecimalValue(Node* head) {
+
+    if(head == NULL) return 0;
+    if(head->next == nullptr and head->data == 0) return 0;
+    if(head->next == nullptr and head->data == 1) return 1;
+    
+    string val;
+    Node* temp = head;
+
+    while(temp != NULL) {
+        if(temp->data == 1) val += '1';
+        if(temp->data == 0) val += '0';
+
+        temp = temp->next;
+    }
+
+    int p = 1;
+    int ans = 0;
+
+    for(int i = val.size()-1; i>=0; i--) {
+        if(val[i] == '1') ans += p;
+        p *= 2;
+    }   
+
+    return ans;
+
+}
+
 int main() {
     vector<int> arr = {-21,10,17,8,4,26,5,35,33,-7,-16,27,-12,6,29,-12,5,9,20,14,14,2,13,-24,21,23,-21,5};
     vector<int> brr = {9,1,8};
