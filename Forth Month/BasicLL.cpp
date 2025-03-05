@@ -46,32 +46,10 @@ int lengthh(Node* head) {
     return len;
 }
 
-Node* removeElements(Node* head, int val) {
-    if(head == NULL) return NULL;
-    if(head->next == nullptr and head->data == val) return NULL;
-     
-    Node* temp = head;
-    Node* newHeaad = new Node(0);
-    Node* prev = newHeaad;
-    if(head->data != val) newHeaad->next = head;
-
-    while(temp != nullptr) {
-        if(temp->data == val) {
-            prev->next = temp->next;
-            temp = temp->next;
-        }
-        else {
-            prev = temp;
-            temp = temp->next;
-        }
-    }
-    return newHeaad->next;
-}
 
 int main() {
-    vector<int> arr = {1,7,7,7,7};
+    vector<int> arr = {1,2,3,5,6,7,8,9,0};
     Node* head = head1(arr);
 
-    traversalS(removeElements(head,7));
     return 0;
 }

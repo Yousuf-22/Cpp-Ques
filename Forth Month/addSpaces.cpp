@@ -2,7 +2,6 @@
 #include<vector>
 using namespace std;
 string addSpaces(string s, vector<int>& spaces) {
-
     string ans;
     int j = 0;
     for(int i = 0; i<s.size(); i++) {
@@ -11,8 +10,7 @@ string addSpaces(string s, vector<int>& spaces) {
             j++;
         }
         ans += s[i];
-    }  
-
+    }
     return ans;
 }    
 int main() {

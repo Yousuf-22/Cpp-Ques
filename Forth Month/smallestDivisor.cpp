@@ -11,7 +11,7 @@ int Divisor(vector<int>& arr, int mid) {
     return res;
 }
 int maxele(vector<int>& nums) {
-    int res = INT16_MIN;
+    int res = __INT_MAX__;
 
     for(int i : nums) {
         if(res < i) res = i;
